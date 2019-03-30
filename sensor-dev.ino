@@ -1,4 +1,4 @@
-const int trigPin = 8, echoPin = 9, controller = 10, sinalPin = 11;
+const int trigPin = 8, echoPin = 9, controller = A0, sinalPin = 11;
 const int commutePin = 13;
 long duration, cm, inches;
 

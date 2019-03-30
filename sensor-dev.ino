@@ -1,4 +1,5 @@
-const int trigPin = 8, echoPin = 9, controller = 10, sinalPin = 11;
+const int trigPin = 8, echoPin = 9, controller = 10, sinalPin = 11
+const int commutePin = 13;
 long duration, cm, inches;
 
 void setup(){
@@ -6,6 +7,7 @@ void setup(){
   pinMode(sinalPin, OUTPUT);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
+  pinMode(commutePin, OUTPUT);
 }
 
 void loop(){
@@ -33,6 +35,7 @@ void loop(){
   Serial.print("cm");
   Serial.print("\t");
   Serial.println(result);
-  digitalWrite(sinalPin, result==0);
+  digitalWrite(sinalPin, result);
+ // digitalWrite(commutePin,result)
   delay(250);
 }

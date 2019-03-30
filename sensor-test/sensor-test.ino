@@ -1,5 +1,6 @@
 const int trig[3] = {2,3,4};
 const int Echo[3] = {5,6,7};
+const int out[3] = {8,9,10};
 const int Size = 3;
 const int switcher = A0;
 
@@ -11,6 +12,9 @@ void setup() {
   pinMode(Echo[0],INPUT);
   pinMode(Echo[1],INPUT);
   pinMode(Echo[2],INPUT);
+  pinMode(out[0],OUTPUT);
+  pinMode(out[1],OUTPUT);
+  pinMode(out[2],OUTPUT);
 }
 
 void loop() {
@@ -32,14 +36,15 @@ void loop() {
     state[i] = (cm<sinal)?1:0;
     Serial.print("Sensor No. ");
     Serial.print(i);
-    Serial.print(" cm ; ");
+    Serial.print(" ; ");
     Serial.println((state[i]==1)?1:0);
-    delay(1000);
+    delay(200);
   }
+  
   Serial.print("the all state are: ");
   int j=0;
-  for(j=0;j<Size;j++)
-  {
+  for(j=0;j<Size;j++){
+    digitalWrite(out[j], (state[j]==1)?HIGH:LOW );
     Serial.print(state[j]);
     Serial.print("\t");
   }

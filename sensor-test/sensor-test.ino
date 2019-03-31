@@ -33,7 +33,7 @@ void loop() {
     
     duration = pulseIn(Echo[i], HIGH);
     cm = (duration/2) / 29.1;
-    state[i] = (cm<sinal)?1:0;
+    state[i] = (cm >= sinal)?1:0;
     Serial.print("Sensor No. ");
     Serial.print(i);
     Serial.print(" ; ");
